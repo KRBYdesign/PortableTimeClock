@@ -76,7 +76,7 @@ CREATE TABLE userlist (
 To create `timeclock`:
 
 ```SQL
-CREATE TABLE userlist (
+CREATE TABLE timeclock (
     'id' INT AUTO_INCREMENT KEY,
     'number' VARCHAR(10) NOT NULL,
     'action' VARCHAR(10) NOT NULL,
@@ -84,6 +84,28 @@ CREATE TABLE userlist (
     'time' VARCHAR(100) NOT NULL,
 );
 ```
+
+I would recommend leaving all of this the same as it comes. Otherwise you'll need to update all reference to the database in every single query the API makes.
+
+### The Website
+
+Again, I used XAMPP to serve the website locally on each of the client computers. If you aren't familiar with where to place the `/frontEnd` directory, [here's a tutorial](https://stackoverflow.com/questions/16772198/how-do-i-test-a-website-using-xampp).
+
+You could probably get away with using the **Live Server** extension for VSCode.
+
+The website can be found at `http://localhost/{front_end_fold_name}`
+
+### The Python
+
+`confirmUsers.py` - Takes a csv of workers, creates an ID for each of them, creates a unique link for each user, assigns the user to a group based upon shift time, and inputs all that created information into a new CSV. The resulting CSV file is intended to be used for a mail merge, where instructions for the user's shifts can be emailed to the user with each user's unique ID's times, and links to download their ID. The server must be running for this.
+
+`guardsToDB.py` - Takes the list of guards created by `confirmUsers.py` and adds each user to the database. The server must be on and running for this.
+
+`outputTimeClock.py` - Does what it says. Outputs all shifts for each user to a CSV file. The server must be on for this.
+
+`dbdupe.py` - Checks the database for duplicate names and numbers. Mostly a sanity check as the user creation process contains self checks to avoid duplicating a user.
+
+`codeToPDF.py` - Creates a PDF ID card for each user in the `userlist`. Then takes everyone of those PDFs and combines them into a single PDF meant to be printed prior to the event.
 
 ---
 
