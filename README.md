@@ -107,6 +107,8 @@ The website can be found at `http://localhost/{front_end_folder_name}`
 
 `codeToPDF.py` - Creates a PDF ID card for each user in the `userlist`. Then takes everyone of those PDFs and combines them into a single PDF meant to be printed prior to the event.
 
+If you're wanting to use these scripts, be ready for some errors. They're written for our specific needs and may not function with your spreadsheets without some minor modifications.
+
 ---
 
 Aside from [Barcode.js](https://github.com/lindell/JsBarcode), and the Node Modules, all code featured in this project is written by myself.
