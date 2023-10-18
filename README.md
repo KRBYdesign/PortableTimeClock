@@ -67,9 +67,9 @@ To create `userlist`:
 
 ```SQL
 CREATE TABLE userlist (
-    id INT AUTO_INCREMENT KEY,
-    number VARCHAR(10) NOT NULL,
-    name VARCHAR(100) NOT NULL,
+    'id' INT AUTO_INCREMENT KEY,
+    'number' VARCHAR(10) NOT NULL,
+    'name' VARCHAR(100) NOT NULL,
 );
 ```
 
@@ -77,11 +77,11 @@ To create `timeclock`:
 
 ```SQL
 CREATE TABLE userlist (
-    id INT AUTO_INCREMENT KEY,
-    number VARCHAR(10) NOT NULL,
-    action VARCHAR(10) NOT NULL,
-    date VARCHAR(100) NOT NULL,
-    time VARCHAR(100) NOT NULL,
+    'id' INT AUTO_INCREMENT KEY,
+    'number' VARCHAR(10) NOT NULL,
+    'action' VARCHAR(10) NOT NULL,
+    'date' VARCHAR(100) NOT NULL,
+    'time' VARCHAR(100) NOT NULL,
 );
 ```
 
