@@ -6,7 +6,7 @@ Email: <kyle@lacoxconsulting.com>
 
 ---
 
-Simple api-based employee time clock system. This project utilizes ExpressJS and MariaDB running on a Raspberry Pi for the back-end, and supports multiple front-ends running on other computers' localhosts. In this example, XAMPP is used by the client computers.  
+An api-based employee time clock system. This project utilizes ExpressJS and MariaDB running on a Raspberry Pi for the back-end, and supports multiple front-ends running on other computers' localhosts. In this example, XAMPP is used by the client computers.  
 
 In theory this project could be extended to function using a live domain, however a constraint on this project was the lack of internet access.
 
