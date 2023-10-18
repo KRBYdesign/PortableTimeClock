@@ -20,6 +20,10 @@ The front end features a "Help" page which helps an end user to use the setup an
 - All back end code
 - User List and Time Clock management tools utilizing python
 
+## What was the purpose?
+
+TNT Security Solutions was contracted to provide security for a large outdoor music festival, and was looking for a way to manage their users, and keep a time clock. The festival is being held in a rural location meaning cell service, and broadband internet service are hard to come by. Ideally the solution shouldn't rely on an external internet connection.
+
 ---
 
 Aside from [Barcode.js](https://github.com/lindell/JsBarcode), and the Node Modules, all code featured in this project is written by myself.
