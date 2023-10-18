@@ -93,7 +93,7 @@ Again, I used XAMPP to serve the website locally on each of the client computers
 
 You could probably get away with using the **Live Server** extension for VSCode.
 
-The website can be found at `http://localhost/{front_end_fold_name}`
+The website can be found at `http://localhost/{front_end_folder_name}`
 
 ### The Python
 
@@ -109,6 +109,6 @@ The website can be found at `http://localhost/{front_end_fold_name}`
 
 ---
 
-Aside from [Barcode.js](https://github.com/lindell/JsBarcode), and the Node Modules, all code featured in this project is written by myself.
+Aside from [Barcode.js](https://github.com/lindell/JsBarcode), and the Node Modules, all code featured in this project is written by myself. This project was a great learning experience. I've gained an understanding of what an API is used for, and what it is doing "behind the scenes." With this understanding, I feel my skill set as a front-end developer has expanded to include a critical component of the industry, and I am more confident in my ability as a programmer. I also wanted to make sure I took the time to document the project and explain it to anyone who may come across it, as well as to gain more experience writing documentation.
 
 I want to give a shout out to Robert Evans, host of the podcast [Behind the Bastards](https://www.iheart.com/podcast/105-behind-the-bastards-29236323/) (the 19th most popular podcast on Apple Podcasts as of the time of writing this), for putting out the 5-part banger, "G. Gordon Liddy, the Fascist Behind Watergate". Your tongue and cheek humor got me through the process of learning asynchronous functions.
