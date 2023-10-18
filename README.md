@@ -1,5 +1,11 @@
 # PortableTimeClock
 
+Author: Kyle Beasley
+
+Email: <kyle@lacoxconsulting.com>
+
+---
+
 Simple api-based employee time clock system. This project utilizes ExpressJS and MariaDB running on a Raspberry Pi for the back-end, and supports multiple front-ends running on other computers' localhosts. In this example, XAMPP is used by the client computers.  
 
 In theory this project could be extended to function using a live domain, however a constraint on this project was the lack of internet access.
@@ -13,3 +19,7 @@ The front end features a "Help" page which helps an end user to use the setup an
 - All front end code (sans the .gif used on the help pages, and the logo in the header.)
 - All back end code
 - User List and Time Clock management tools utilizing python
+
+---
+
+Aside from Barcode.js, and the Node Modules, all code featured in this project is written by myself.
