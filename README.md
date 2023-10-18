@@ -14,6 +14,10 @@ In this instance, communications are handled by a cheap wireless router.
 
 The front end features a "Help" page which helps an end user to use the setup and run the entire time clock system.
 
+I want to note this is not intended to be used by others. You can, I just don't recommend it. I won't help you make it work. I will not be accepting any suggested edits either. This is project showcase for future employers and for my personal record keeping.
+
+Thank you for checking this out!
+
 ## What was the purpose?
 
 TNT Security Solutions was contracted to provide security for a large outdoor music festival, and was looking for a way to manage their users, and keep a time clock. The festival is being held in a rural location meaning cell service, and broadband internet service are hard to come by. Ideally the solution shouldn't rely on an external internet connection.
