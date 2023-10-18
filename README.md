@@ -1,4 +1,4 @@
-# PortableTimeClock
+# Portable Time Clock
 
 Author: Kyle Beasley
 
@@ -22,4 +22,6 @@ The front end features a "Help" page which helps an end user to use the setup an
 
 ---
 
-Aside from Barcode.js, and the Node Modules, all code featured in this project is written by myself.
+Aside from [Barcode.js](https://github.com/lindell/JsBarcode), and the Node Modules, all code featured in this project is written by myself.
+
+I want to give a shout out to Robert Evans, host of the podcast [Behind the Bastards](https://google.com), for putting out the 5-part banger, "G. Gordon Liddy, the Fascist Behind Watergate". Your tongue and cheek humor got me through the process of learning asynchronous functions.
