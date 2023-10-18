@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help</title>
+    <script defer src="./help.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="./index.html"
+        ><img src="./TNT Logo Color Horizontal.png" id="header-logo"
+      /></a>
+      <nav>
+        <a href="./register.html">Register</a>
+      </nav>
+    </header>
+
+    <div id="table-of-contents">
+      <a onclick="smoothScroll('server')">Server / Raspberry Pi</a>
+      <a onclick="smoothScroll('database')">Database</a>
+      <a onclick="smoothScroll('front')">Front End (Website)</a>
+      <a onclick="smoothScroll('troubleshooting')">Server Broke</a>
+    </div>
+
+    <section class="help-section" id="help-intro">
+      <h1>Help</h1>
+      <p>
+        Hopefully you won't need to reference this page too often. I've worked
+        very hard to make this system robust and fault tolerant. Below, you'll
+        find everything you need to know when it comes to running this whole
+        server / database / website clock-in nonsense.
+      </p>
+      <p style="text-align: right; padding-right: 4em">- Kyle</p>
+    </section>
+
+    <section class="help-section" id="pi-help">
+      <h1>Server / Raspberry Pi</h1>
+      <p>
+        This is kinda technical so I'll go ahead and apologize in advance.
+        Hopefully I've explained the process well enough that everything goes
+        smoothly, and with minimal confusion.
+      </p>
+      <h2>Setup:</h2>
+      <ol id="pi-setup-list">
+        <li>Router must be plugged in and turned on.</li>
+        <li>
+          <div class="li-with-image">
+            <p>
+              Using an ethernet cable, connect the Pi to the router through one
+              of the "Fast Ethernet" jacks located on the back of the router. It
+              doesn't matter which port you choose, as long as it's not the blue
+              one.
+            </p>
+            <img
+              src="./help/RouterConnectionDiagram.png"
+              style="width: 400px"
+            />
+          </div>
+        </li>
+        <li>
+          Ensure the USB dongle for the keyboard and mouse is connected to a USB
+          port on the Pi.
+        </li>
+        <li>Ensure the Pi is connected to a monitor via HDMI.</li>
+        <li>
+          Plug in the Raspberry Pi via the micro USB power cable, and flip the
+          switch to the "On" position. The fan just inside the top of the Pi's
+          case will turn on, indicating the pi is receiving power. It may be
+          difficult to see, but a red and green LED should be on / flashing on
+          the edge of the pi's motherboard.
+        </li>
+        <br />
+        <p>
+          <strong>Note: </strong>You shouldn't need to login to the Pi. It
+          should be automatic. However if you do, the username is "kyle" and the
+          password is "214itpi".
+        </p>
+        <br />
+        <li>Connect the clock in / scanning laptops to the network:</li>
+        <p><strong>Network:</strong> TNT-Lan 2.4</p>
+        <p><strong>Password:</strong> locallogin</p>
+      </ol>
+      <br />
+      <h2>Turning On the Server:</h2>
+      <p>
+        This is going to make use of the Pi's terminal. Be sure to follow all
+        instructions carefully. Spelling, punctuation, and capitalization are
+        all very important when navigating the terminal.
+      </p>
+      <ol id="server-setup-list">
+        <li>
+          In the Pi's taskbar (located at the top of your screen) there is an
+          application named "Terminal". Open that.
+        </li>
+        <li>
+          <div class="li-with-image">
+            <p>A window similar to this should appear.</p>
+            <img style="width: 400px" src="./help/EmptyPiTerm.png" />
+          </div>
+        </li>
+        <li id="ifconfig">
+          <div class="li-with-image">
+            <p>
+              In the terminal window, type the command
+              <strong class="code">ifconfig</strong> then hit the 'Enter'
+              key.<br /><br />
+              You are looking for the "eth0: inet" address. That is the Network
+              IP address for the Pi. Write that number down, you may need it
+              later.<br /><br />
+              It will be in a format similar to 192.168.__.____
+            </p>
+            <img src="./help/ifConfig.png" width="400px" />
+          </div>
+        </li>
+        <li>
+          <div class="li-with-image">
+            <p style="text-align: left">
+              Next, type<br />
+              <strong class="code">cd Documents/stationserver</strong> then hit
+              the 'Enter' key.
+            </p>
+            <img src="./help/cdDocuments.png" style="width: 400px" />
+          </div>
+        </li>
+        <li id="npm-start">
+          <div class="li-with-image">
+            <p style="text-align: left">
+              Inside the
+              <strong class="code">Documents/stationserver</strong> directory,
+              type <strong class="code">npm start</strong> then hit the 'Enter'
+              key. Assuming the terminal doesn't continue past
+              <strong class="code">starting 'node server.js'</strong> you're
+              done. The server is running.<br /><br />If it does call or text
+              Kyle.<br /><br />
+              <strong style="font-weight: 800"
+                >Leave this window open and running.</strong
+              >
+            </p>
+            <img src="./help/npmStart.png" style="width: 400px" />
+          </div>
+        </li>
+        <li>
+          If you need to stop the server or if it crashes, click into the
+          terminal window running the server, and push
+          <strong class="code">Ctrl + C</strong>. Restart the server by typing
+          the <strong class="code">npm start</strong> command again.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="db-help">
+      <h1>Database</h1>
+      <p>
+        The database lives on the Pi along with the server, using MariaDB. More
+        than likely the MariaDB service started along with the rest of the Pi
+        and you wont have to do anything to make the database work. However if
+        you need to start the service for whatever reason, in a new terminal
+        window, enter the command
+        <strong class="code">sudo service mariadb start</strong>
+      </p>
+      <h2>Test Commands:</h2>
+      <ol>
+        <li>
+          <div class="li-with-image">
+            <p>
+              In a new terminal window, enter the command
+              <strong class="code">mariadb -u root -p</strong> then hit the
+              'Enter' key. The password is "TestDB".
+            </p>
+            <img src="./help/mariadbLogin.png" width="400px" />
+          </div>
+        </li>
+        <li>
+          <div class="li-with-image">
+            <p>Success looks like this:</p>
+            <img src="./help/mariadbSuccess.png" width="400px" />
+          </div>
+        </li>
+        <li>
+          <div class="li-with-image">
+            <p>
+              Check to make sure the 'stationTimeClock' database exits by
+              entering the command<br />
+              <strong class="code">SHOW DATABASES</strong> and looking for
+              'stationTimeClock' in the list of results.
+            </p>
+            <img src="./help/showDBs.png" width="400px" />
+          </div>
+        </li>
+        <li>
+          <div class="li-with-image">
+            <p>
+              Assuming the stationTimeClock database exists, select it by using
+              the command<br /><strong class="code"
+                >USE 'stationTimeClock'</strong
+              >
+              and check that the 'timeclock' and 'userlist' tables exists with
+              the command <strong class="code">SHOW TABLES</strong>
+            </p>
+            <img src="./help/showTables.png" width="400px" />
+          </div>
+        </li>
+        <li>
+          Assuming these steps were able to be completed, the Database is live
+          and ready to go.
+        </li>
+      </ol>
+    </section>
+
+    <section class="help-section" id="front-end-help">
+      <h1>Front End (Website)</h1>
+      <p>
+        The "front-end" is where you are now. Its the whole of the website.
+        Below you can find instructions and explanations to how the different
+        parts of the website function.
+      </p>
+      <h2>Clock In / Out Page</h2>
+      <p>
+        The time-clock page takes a scanned barcode and makes an "In" or and
+        "Out" request for the provided user. The appropriate action is
+        calculated by the server itself. Once the appropriate action is
+        completed, the page will update to display a "Time Card" of sorts,
+        showing the user's name, the action taken, and the time said action was
+        taken.
+      </p>
+      <ol id="front-end-setup-list">
+        <li>Ensure the "Scan Barcode" input fields is selected.</li>
+        <li>Scan the user's barcode.</li>
+        <li>Click "Submit"</li>
+      </ol>
+      <h2>Register / Lookup Page</h2>
+      <h3>Look Up By Name</h3>
+      <p>
+        The registration page possesses the ability to lookup any user's barcode
+        by name should they lose their card and need it to be reprinted. In the
+        event multiple guards exists matching given search name, all matching
+        users will appear in a list with their ID number next to their names, as
+        well as a print button to print their cards if needed.
+      </p>
+      <h3>Register</h3>
+      <p>
+        The page can also create new users in the User Database and generate an
+        ID number / card for them.
+        <strong>Do not create ID's for users who already exists.</strong> Look
+        them up and reprint their card. The page will attempt to prevent the
+        creation of duplicate guards but will not be able to save you in all
+        cases.
+      </p>
+      <h2 id="troubleshooting">uh oh server broke :(</h2>
+      <img src="./when-server-down-iceeramen.gif" id="shaq-meme" />
+      <p>
+        In the event that the webpages aren't working as intended, visit the
+        "Register" page. Look up a user who you know for certain exists. Should
+        nothing return, there are a couple of reasons to why that'd be:
+      </p>
+      <ol id="front-end-trouble-shooting-list">
+        <li>
+          The server is not active. Please ensure the Pi is on, and at least one
+          terminal window is open running the server. It's the
+          <strong class="code">npm start</strong>
+          <a
+            style="color: blue; text-decoration: underline; cursor: pointer"
+            onclick="smoothScroll('npm')"
+            >command mentioned earlier.</a
+          >
+        </li>
+        <li>
+          The webpage is making requests to the wrong IP address. Locate the IP
+          address of the Pi,
+          <a
+            style="color: blue; text-decoration: underline; cursor: pointer"
+            onclick="smoothScroll('ifconfig')"
+            >you wrote down earlier.</a
+          >
+          Inside the website files (<strong class="code"
+            >~\Applications\XAMPP\htdocs\stationFrontEnd</strong
+          >), locate and open the file titled index.js.<br /><br />Near at the
+          top of the file, there will be two
+          <strong class="code">const</strong> variables. For the one labeled
+          <strong class="code">IP</strong> ensure the value is the same as the
+          Pi's Ip address. If it isn't, change the variable's value to match the
+          Pi's IP address. make sure to the value is encapsulated in quotation
+          marks <strong class="code">" "</strong>.<br />
+          <br />Repeat the same process for the file titled "Register.js".
+          Afterwards, save both files and reload your webpages.
+        </li>
+        <li>
+          The database isn't running. Sometimes this happens. I haven't been
+          able to figure out why. Just
+          <a
+            style="color: blue; text-decoration: underline; cursor: pointer"
+            onclick="smoothScroll('database')"
+            >start the mariadb service.</a
+          >
+        </li>
+        <li>
+          <strong>¯\_(ツ)_/¯</strong> Sometimes shit happens. Just call Kyle if
+          you've gotten this far.
+        </li>
+      </ol>
+    </section>
+
+    <p style="text-align: center">
+      <a
+        style="color: blue; text-align: center; cursor: pointer"
+        onclick="smoothScroll('toc')"
+        >Back To Top
+      </a>
+    </p>
+
+    <footer>
+      <div id="footer-links">
+        <a href="./help.html">Help</a>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register / Lookup</title>
+    <script defer src="./register.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./barcode.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="no-print">
+      <a href="./index.html"
+        ><img src="./TNT Logo Color Horizontal.png" id="header-logo"
+      /></a>
+      <nav>
+        <a href="./index.html">Home</a>
+      </nav>
+    </header>
+
+    <div class="no-print" id="how-to-section">
+      <h1>Lookup / Register</h1>
+      <p>
+        Look up users <strong>by name</strong> to find and re-print their
+        barcode.
+      </p>
+      <p>
+        New users can also be registered by clicking the
+        <strong>Register</strong> option below. A new barcode will be generated
+        and a profile will be created in the database.
+      </p>
+    </div>
+
+    <div class="no-print" id="lookup-section">
+      <label>Name: <input autocomplete="off" type="text" id="name" /></label>
+      <button onclick="registerNewUser()">Register</button>
+      <button onclick="lookUpUser()">Look Up</button>
+    </div>
+
+    <div id="multiple-results-container"></div>
+
+    <p id="message" class="no-print"></p>
+    <div id="idCard" style="display: none">
+      <h3 id="idName"></h3>
+      <p id="idNumber"></p>
+      <svg id="idBarcode"></svg>
+      <br />
+      <img src="./TNT Logo Color Horizontal.png" />
+      <br />
+      <button class="no-print" onclick="{window.print()}">Print</button>
+    </div>
+
+    <footer class="no-print">
+      <div id="footer-links">
+        <a href="./help.html">Help</a>
+      </div>
+    </footer>
+
+    <style type="text/css" media="print">
+      .no-print {
+        display: none !important;
+      }
+    </style>
+  </body>
+</html>
