@@ -55,7 +55,7 @@ Transfer the `/backEnd` directory to the computer which will act as the server. 
 
 Inside the `/backEnd` directory on the server, install all required packages with the command `npm install`, then run `npm start`
 
-This install all required packages by the package.json file, as well as fire up Node.js / Express at the server's Local IP address, PORT 5000
+This installs all required packages from the package.json file, as well as fires up Node.js / Express at the server's Local IP address, PORT 5000
 
 **NOTE:** This port can be adjusted in the `server.js` file located in the `/backEnd` directory. Be sure to make the corresponding changes to the `index.js` and `register.js` files located in the `/frontEnd` directory.
 
