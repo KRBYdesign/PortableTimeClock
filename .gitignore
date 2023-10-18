@@ -146,4 +146,4 @@ userManagement/Management/allPDFs/*.pdf
 userManagement/Management/allCodes/*.png
 
 # Backend
-backEnd/node_modules
+backEnd/node_modules/.
