@@ -43,7 +43,51 @@ TNT intends to continue using this system for all future field jobs.
 
 Download and extract the full .zip file from GitHub.
 
+### The Router
 
+You can use a router without an internet connection. All you have to do is turn it on, and it'll broadcast a local network that devices can use to communicate. Login to the router, setup your network's name and password, then connect your client devices to the routers new network.
+
+The login information can usually be found on the back or bottom of the device.
+
+### The Server / Raspberry Pi
+
+Transfer the `/backEnd` directory to the computer which will act as the server. There are multiple ways to do this however, this isn't a tutorial for that. FWIW, when transferring files to my Pi, I found FileZilla to be the easiest by far.
+
+Inside the `/backEnd` directory on the server, install all required packages with the command `npm install`, then run `npm start`
+
+This install all required packages by the package.json file, as well as fire up Node.js / Express at the server's Local IP address, PORT 5000
+
+**NOTE:** This port can be adjusted in the `server.js` file located in the `/backEnd` directory. Be sure to make the corresponding changes to the `index.js` and `register.js` files located in the `/frontEnd` directory.
+
+### The Database
+
+In my case, the database lived on the Raspberry Pi along with the server. If you'd like to follow the same structure I used, the database is named `stationTimeClock`. It contains two tables, `userlist` and `timeclock`.
+
+To create `userlist`:
+
+```SQL
+{
+CREATE TABLE userlist (
+    id INT AUTO_INCREMENT KEY,
+    number VARCHAR(10) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+);
+}
+```
+
+To create `timeclock`:
+
+```SQL
+{
+CREATE TABLE userlist (
+    id INT AUTO_INCREMENT KEY,
+    number VARCHAR(10) NOT NULL,
+    action VARCHAR(10) NOT NULL,
+    date VARCHAR(100) NOT NULL,
+    time VARCHAR(100) NOT NULL,
+);
+}
+```
 
 ---
 
