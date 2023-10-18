@@ -66,19 +66,16 @@ In my case, the database lived on the Raspberry Pi along with the server. If you
 To create `userlist`:
 
 ```SQL
-{
 CREATE TABLE userlist (
     id INT AUTO_INCREMENT KEY,
     number VARCHAR(10) NOT NULL,
     name VARCHAR(100) NOT NULL,
 );
-}
 ```
 
 To create `timeclock`:
 
 ```SQL
-{
 CREATE TABLE userlist (
     id INT AUTO_INCREMENT KEY,
     number VARCHAR(10) NOT NULL,
@@ -86,7 +83,6 @@ CREATE TABLE userlist (
     date VARCHAR(100) NOT NULL,
     time VARCHAR(100) NOT NULL,
 );
-}
 ```
 
 ---
